@@ -1,0 +1,49 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Description" content="A website created by Vangex.">
+   <meta name="Keywords" content="whatthefuck, south park, pokemon, 3ds homebrew, wii homebrew, rants">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en]C-CCK-MCD {TLC;RETAIL}  (Win95; U) [Netscape]">
+   <div class="topnav">
+   <div class="navbar">
+   <a href="index.html">Home</a>
+   <a href="homebrew.html">Projects</a>
+   <a href="blog.html">Personal Blog</a>
+<body background="background.png" text="#000000" link="#FF0000">
+</head>
+<font color="#000000">
+
+<h1><center><h1 style="font-size:50px;"><h1 style="color:#FFFFFF"><center><center><center>  	Tenor-Z's House</h1></center>
+<p1><p1 style="color:#FFFFFF"><center><img SRC=a_left.gif>Nintendo Wii Development<img SRC=a_left.gif></center>
+<br>
+<p1><p1 style="font-size:14px;">The Nintendo Wii was part of a trend in the late 2000's where every home console would use PowerPC for processing power. The Playstation 3 and the Xbox 360 were part of this trend as well, since PowerPC architecture was more affordable to use rather than brands listed for maximum performance which obviously cost more. The controllers, dubbed Wiimotes, have a BroadCom BCM2042, which helps it become a Bluetooth esque device complete with the accelerometer and infrared camera to point at the sensor bar. The console's main CPU dubbed Broadway, runs at 729 mhz. It is mostly carried from the CPU of the Nintendo Gamecube, as they both use PowerPC instead this processor was rebranded by IBM at the time.</p1>
+<br>
+<center><img SRC=wiidiagram.png width=600, height=300></center>
+<br>
+<p1><p1 style="font-size:14px;">This diagram shows that there is another CPU for the input/output system. This CPU is dubbed Starlet and it is connected to the various hardware devices in the console, running at 243 mhz in the GPU card (Hollywood). The sole reason why this is a different CPU is because it has its own RAM, seperating it from the main Broadway chip. Starlet is usually responsible for migrating access between many of the firmware devices between it and Broadway, which  also grants and denies access to the NAND where the OS data and user files are stored. Since Starlet can be reprogrammed with the same input/output system, it keeps backwards compatibility with the Wii. The Advanced Microcontroller Bus Architecture used  wires up several buses like the NAND interface and  USB 2.0 controllers. Note that the AES and SHA-1 modules are used for security regarding the NAND and anti piracy. That being said, Starlet has an operating system, one on Broadway and another on Starlet. Both are on the NAND memory. From the start of turning on the power, Starlet executes the OS called the Input/Output Operating System (IOS), which includes a Microkernel to control the ARM9 CPU and communicate with other hardware, drivers to communicate with said hardware and a cryptographic core to accelerate encryption operations. Through IPC, Broadway and Starlet communicate with each other with reserved registered. When IOS is updated, the newer version is added into a 'slot' in which all IOS versions are divided in the NAND. The Starlet chip boots a MIOS when a Gamecube disc is detected, it's almost like a Gamecube emulator inside the Wii.</p1></center>
+<br>
+<center><img SRC=menu.jpg width=600, height=300</center>
+<br>
+<p1><p1 style="font-size:14px;">Broadway runs the infamous System Menu, and from here, the user could run applications, check the message board, run Gamecube and Wii discs. Each Wii has a unique SEEPROM value burned in by Nintendo which allows it to send and recieve messages. It is also possible to change system settings through this OS. When an application is loaded, Starlet calls the respective IOS version to run said program. The Wii has a filesystem in the NAND in which directories are responsible for holding certain data. The /dev folder has all the system components, the aes encryption methods, kernel, etc. /title is used for holding titles installed on the system, all of which have their own ID number. I suggest checking out the Filesystem page on WiiBrew if you want to view this further.<p1></center>
+<br>
+<br>
+<p1><p1 style="font-size:14px;">After studying the Wii's filesystem and NAND, using DevkitPro and C, I created a trojan dedicated to wiping the Wii's NAND, completely bricking the system. Having access to the NAND is a serious security concern, so this makes easy for editing and writing to files. Of course when files and folders are overwritten be it from an overwriting virus or just an ordinary program, they are rendered useless. If you are out of the loop for why I write malware, please check out the respective section in the malware development page. I have dubbed the project...</p1>
+<center><h1> <b><b><b>WIIRAZOR</b></b></b></h1></center>
+<center><img SRC=demo1.png width=600, height=300</center><img SRC=demo2.png width=500, height=300</center>
+<br>
+<p1><p1 style="font-size:14px;">Dolphin runs WiiRazor a bit differently since it does everything to make sure the Wii BIOS doesn't get messed up. As soon as folders and files are removed, Dolphin gets all up-and-arms and tries to close itself. This means the program cannot be run on an emulator, since there will always be measures to make sure the installation of said emulators don't get damaged. With the Wii, if something gets overwritten, since it uses PowerPC for processing, it doesn't have any restrictions for what the processing power can do. That's why WiiRazor succeeds.</p1>
+<br>
+<br>
+<p1><p1 style="font-size:14px;">This was the first trojan I wrote for a console and I even went as far as to create a channel for it on the System Menu, which is now lost in time (maybe it's time to create a better one anyway). Even though it works, it is far from finalized, and even when I finish it, it will not be released in the wild. The code is messy as hell and could use some organization and such. However, unlike Project Dandelion, I will document it with video and photo proof; I'm not one for scare tactics.</p1>
+<br>
+<h1><h1 style="font-size:36px;">What the Hell is Project Dandelion??</h1>
+<p1><p1 style="font-size:14px;">Without personal bias, Project Dandelion was meant to be doomsday for all available Wii titles to download via homebrew. A bunch of assholes would go and infect random homebrew apps with trojans they wrote. However, there are several problems with Project Dandelion.</p1>
+<center><ul><ul style="font-size:26px;"><ul style="color:#FFFFFF">
+<li>There are no samples of said infected programs</li>
+<li>We've only heard from them through forum posts</li>
+</ul></center>
+<p1><p1 style="font-size:14px;">How can something be a threat when its only mentioned by certain people? For malware, with enough pandemonium, everyone will be talking about it? So, if this information was publicly released on GBATemp and it wasn't some bullshit spewed by a selective party, why is it so unknown? Surely, even through precise searching, one would find at least one sample they wrote, but nothing has been announced or talked about. The download button alone should be more than enough proof that I do not make shit up. They don't give any information, and they disappear from the face of the earth; pansy pieces of shit!</p1>
+<br>
+<br>
+<p1><p1 style="font-size:14px;">Download WiiRazor via my Github!
